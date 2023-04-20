@@ -1,27 +1,33 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <title>Users page</title>
 </head>
 <body>
+    <div id="heading_section">
     <h1>Here are your app users for "app_challenge"</h1>
+    </div>
+    
     {% if users %} <!-- if the key users exists.  Check the view users to understand-->
 
     <ol>
         {% for person in users %} <!-- Loop through the elements of user list-->
-        <li>User info</li>
+        <li id="user_info"><strong><em>User info</em></strong> </li>
         <ul>
-            <li>First Name: {{person.first_name}}</li> <!-- for each item write the attribute first name next to HTML code First Name. Same thing for last name and email-->
-            <li>Last Name: {{person.last_name}}</li>
-            <li>Email: {{person.email}}</li>
+            <li><strong>First Name:</strong> {{person.first_name}}</li> <!-- for each item write the attribute first name next to HTML code First Name. Same thing for last name and email-->
+            <li><strong>Last Name:</strong> {{person.last_name}}</li>
+            <li><strong>Email:</strong> {{person.email}}</li>
         </ul>
         {% endfor %} <!--end the for loop-->
     </ol>
 
     {% endif %} <!--close if statement-->
+    
     
 </body>
 </html>
